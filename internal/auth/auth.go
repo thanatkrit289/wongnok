@@ -21,7 +21,7 @@ func New(db *sql.DB) *Auth {
 var reUsername = regexp.MustCompile(`^[a-z0-9]*$`)
 
 // Sign up
-func (svc *Auth) signUp(ctx context.Context, username, password string) (userID int64, err error) {
+func (svc *Auth) SignUp(ctx context.Context, username, password string) (userID int64, err error) {
 	// normalize data
 	username = strings.ToLower(username)
 	username = strings.TrimSpace(username)

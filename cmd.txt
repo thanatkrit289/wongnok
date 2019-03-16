@@ -1,0 +1,23 @@
+##### postgres
+psql -U postgres
+\l
+
+create database wongnok;
+
+\c wongnok
+\dt
+
+
+#### go mod
+go mod init
+
+#### run
+go run main.go
+go run .
+
+
+### folder internal
+เป็นกฏของ golang จะไม่ให้คนอื่น import ได้
+
+
+#### table testing

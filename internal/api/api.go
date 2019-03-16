@@ -15,11 +15,15 @@ type API struct {
 }
 
 // Handler returns api's handler
-func (api API) Handler(auth *auth.Auth) http.Handler {
+func (api API) Handler() http.Handler {
 	router := httprouter.New()
 
 	// auth
 	router.POST("/auth/signup", api.authSignUp)
+
+	router.POST("/auth/signin", api.authSignIn)
+
+	router.POST("/auth/signout", api.authSignOut)
 
 	return router
 }

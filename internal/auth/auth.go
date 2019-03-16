@@ -52,13 +52,16 @@ func (svc *Auth) SignUp(ctx context.Context, username, password string) (userID 
 	err = svc.db.QueryRowContext(ctx, `
 		insert into users
 			(username, password)
+		values
+			($1, $2)
 		returning id
 	`, username, hashedPass).Scan(&userID)
 
 	if err != nil {
 		return 0, err
 	}
-	panic("TODO")
+
+	return userID, nil
 }
 
 // SignIn sign in user
@@ -86,8 +89,8 @@ func (svc *Auth) SignIn(ctx context.Context, username, password string) (token s
 	err = svc.db.QueryRowContext(ctx, `
 		select 
 			id, password
-		form users
-		where username = $i
+		from users
+		where username = $1
 	`, username).Scan(&userID, &userPassword)
 	if err == sql.ErrNoRows {
 		return "", fmt.Errorf("invalid credentials")

@@ -26,3 +26,6 @@ go run .
 #### httprouter
 https://github.com/julienschmidt/httprouter
 go get github.com/julienschmidt/httprouter
+
+#### connect db
+github.com/lib/pq

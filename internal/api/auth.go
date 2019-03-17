@@ -13,10 +13,8 @@ func (api *API) authSignUp(w http.ResponseWriter, r *http.Request, ps httprouter
 	}
 
 	err := decodeJSON(r, &req)
-
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
-
 		return
 	}
 
@@ -41,7 +39,6 @@ func (api *API) authSignIn(w http.ResponseWriter, r *http.Request, ps httprouter
 	err := decodeJSON(r, &req)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
-
 		return
 	}
 

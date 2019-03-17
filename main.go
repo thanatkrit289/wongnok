@@ -15,7 +15,10 @@ func main() {
 	fmt.Println("Wongnok")
 	fmt.Println("version: 1.0.0")
 
-	db, err := sql.Open("postgres", "postgres://postgres@localhost:5432/wongnok?sslmode=disable")
+	db, err := sql.Open(
+		"postgres",
+		"postgres://postgres@localhost:5432/wongnok?sslmode=disable",
+		)
 
 	if err != nil {
 		log.Fatal(err)
@@ -33,6 +36,7 @@ func main() {
 		}.Handler(),
 	}
 
+	log.Printf("Server listening on %s\n", server.Addr)
 	err = server.ListenAndServe()
 	if err != http.ErrServerClosed {
 		log.Fatal(err)

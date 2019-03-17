@@ -29,3 +29,10 @@ go get github.com/julienschmidt/httprouter
 
 #### connect db
 github.com/lib/pq
+
+#### testify
+https://github.com/stretchr/testify
+
+####
+return struck
+รับ interface

@@ -19,6 +19,9 @@ go run .
 ### folder internal
 เป็นกฏของ golang จะไม่ให้คนอื่น import ได้
 
+### golang dispatcher
+- คุณนอร์ทขึ้นโปรเจคแบบนี้
+
 
 #### table testing
 
@@ -36,3 +39,55 @@ https://github.com/stretchr/testify
 ####
 return struck
 รับ interface
+
+
+#### handle error
+
+
+#### design ตาม business
+
+- len ดูเป็น byte
+- RuneCountInString นับเป็นจำนวนตัวอักษร
+
+microservice -> resful
+
+##### govalidator
+https://github.com/asaskevich/govalidator
+
+url.parse
+
+for rows.Next(){
+....
+ถ้า next ต่อไปมีข้อมูลจะเป็น true
+}
+
+การเช็คและ return จะอยู่ที่ handler
+โดยรับค่าจาก service มาทำการเช็คอีกที
+
+
+entity
+dao
+dto
+stateless
+
+time ควรเป็น utc (+0)
+แล้ว frontend ไปแปลงเองตามประเทศ
+
+
+middleware
+- รับ handler
+- api.go/fetchCredential()
+- api.go/onlyAdminGuard()
+
+
+helper function
+- api.go/getUserID()
+
+### build go with docker
+$ docker build -t test .
+$ docker run --rm test
+
+docker ps -a | grep Exited | awk '{print{1}}' |
+
+
+#### graceful shutdown

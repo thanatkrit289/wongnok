@@ -14,6 +14,10 @@ type API struct {
 	Auth *auth.Auth
 }
 
+type AuthService interface {
+
+}
+
 // Handler returns api's handler
 func (api API) Handler() http.Handler {
 	router := httprouter.New()
